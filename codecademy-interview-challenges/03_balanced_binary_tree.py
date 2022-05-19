@@ -10,17 +10,29 @@ class TreeNode():
   def __str__(self):
     return f"{self.value}->{self.left}\n{self.value}->{self.right}"
 
-class SubNode(TreeNode):
-  def __init__(self, value):
-    self.right = None
-    self.left = None
-    self.value = value
 
-    def put_into_position(self, position):
-      if position == 'right':
-        self.right = self.value
-        
+class SubNodeLeft(TreeNode):
+
+  def __init__(self, value):
+    self.value = self.left
+
+  def __str__(self):
+    return f"{self.value}->{self.left}\n{self.value}->{self.right}"
+
+
+class SubNodeRight(TreeNode):
+
+  def __init__(self, value):
+    self.value = self.right
+    
+  def __str__(self):
+    return f"{self.value}->{self.left}\n{self.value}->{self.right}"
+
 def balanced_bst(a):
+  
+  core_value = a[0]
+  core_node = TreeNode(core_value)
+
   return a
   # Write your code here
 
